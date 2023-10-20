@@ -6,7 +6,7 @@ authors = ["Vladislav Vasilev <akiro_jpg@vk.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 black = "^23.10.0"
 flake8 = "^6.1.0"
 mypy = "^1.6.1"
@@ -14,7 +14,6 @@ isort = "^5.12.0"
 
 [tool.flake8]
 line-length = 119
-exclude = .git, .venv, __pycache__
 
 [tool.black]
 line-length = 119
