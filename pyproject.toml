@@ -21,7 +21,7 @@ warn_return_any = true
 exclude = 'venv'
 
 [tool.isort]
-line-length = 119
+line_length = 119
 
 [tool.black]
 line-length = 119
