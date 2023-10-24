@@ -4,11 +4,14 @@ def date_from_datetime(datetime: str) -> str:
     :param datetime: Исходная строка
     :return: Форматированая строка
     """
-    date = datetime[:10].split("-")
-    day = date[-1]
-    month = date[1]
-    year = date[0]
-    return f"{day}.{month}.{year}"
+    if len(datetime) != 26:
+        return "Вы ввели некорректные данные!"
+    else:
+        date = datetime[:10].split("-")
+        day = date[-1]
+        month = date[1]
+        year = date[0]
+        return f"{day}.{month}.{year}"
 
 
 if __name__ == "__main__":
