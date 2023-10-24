@@ -23,7 +23,7 @@ def is_card_valid(info: str) -> bool:
         return card_info[0] in card_vendors
 
 
-def return_masked_info(info: str) -> tuple[str, str]:
+def return_masked_info(info: str) -> tuple[str, str] | str:
     """
     Принимает на вход данные карты и счета, возвращает маскированную версию
     :param info: Информация о счете/карте формата 'Счет xxx / Visa xxx'
@@ -39,6 +39,8 @@ def return_masked_info(info: str) -> tuple[str, str]:
         card_vendor = " ".join(card_info[0:-1])
         card_number = int(card_info[-1])
         return card_vendor, card_mask(card_number)
+    else:
+        return "Вы ввели некорректные данные счета/карты"
 
 
 if __name__ == "__main__":
