@@ -12,7 +12,7 @@ def state_processing(data: list[dict], state: str = "EXECUTED") -> list[dict]:
     return processed
 
 
-def date_processing(data: list[dict], sort_params: str | None = None):
+def date_processing(data: list[dict], sort_params: str | None = None) -> list[dict]:
     """
     Получает список словарей и сортирует его по ключу 'date'
     :param data: Список словарей с данными
