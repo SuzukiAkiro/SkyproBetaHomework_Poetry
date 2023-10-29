@@ -1,5 +1,5 @@
-from masks.account import account_mask
-from masks.card import card_mask
+from src.masks.account import account_mask
+from src.masks.card import card_mask
 
 
 def is_account(info: str) -> bool:
@@ -22,7 +22,7 @@ def is_card_valid(info: str) -> bool:
         card_info = info.lower().split(" ")
         return card_info[0] in card_vendors
     return False
-    
+
 
 def return_masked_info(info: str) -> tuple[str, str] | str:
     """
@@ -42,6 +42,7 @@ def return_masked_info(info: str) -> tuple[str, str] | str:
         return card_vendor, card_mask(card_number)
     else:
         return "Вы ввели некорректные данные счета/карты"
+
 
 def date_from_datetime(datetime: str) -> str:
     """Превращает строку формата YYYY-MM-DDTHH:MM:SSSSSS \
