@@ -33,13 +33,13 @@ def return_masked_info(info: str) -> tuple[str, str] | str:
     if is_account(info):
         account_info = info.split(" ")
         account_number = int(account_info[1])
-        return account_info[0], account_mask(account_number)
+        return account_info[0] + " " + account_mask(account_number)
 
     if is_card_valid(info):
         card_info = info.split(" ")
         card_vendor = " ".join(card_info[0:-1])
         card_number = int(card_info[-1])
-        return card_vendor, card_mask(card_number)
+        return card_vendor + " " + card_mask(card_number)
     else:
         return "Вы ввели некорректные данные счета/карты"
 
