@@ -57,3 +57,4 @@ def test_return_masked_info(card, expected_result, request: pytest.FixtureReques
 
 def test_date_from_datetime(correct_datetime, incorrect_input):
     assert src.widget.date_from_datetime(correct_datetime[0]) == correct_datetime[1]
+    assert src.widget.date_from_datetime(incorrect_input) == "Вы ввели некорректные данные!"
