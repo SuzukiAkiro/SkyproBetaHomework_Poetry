@@ -65,10 +65,20 @@ def correct_answer_filter_rub():
     return [873106923, 594226727]
 
 
-def test_card_generator():
-    assert next(src.generators.card_number_generator(1, 5)) == "0000 0000 0000 0001"
-    assert next(src.generators.card_number_generator(2, 5)) == "0000 0000 0000 0002"
-    assert next(src.generators.card_number_generator(3, 5)) == "0000 0000 0000 0003"
+@pytest.fixture
+def card_to_range_5():
+    return [
+        "0000 0000 0000 0001",
+        "0000 0000 0000 0002",
+        "0000 0000 0000 0003",
+        "0000 0000 0000 0004",
+        "0000 0000 0000 0005",
+    ]
+
+
+def test_card_generator(card_to_range_5):
+    assert list(src.generators.card_number_generator(1, 5)) == card_to_range_5
+    assert list(src.generators.card_number_generator(1, 3)) == card_to_range_5[0:3]
 
 
 def test_filter_by_currency_usd(data, correct_answer_filter_usd):
