@@ -1,8 +1,9 @@
-from functools import wraps
 from datetime import datetime
+from functools import wraps
+from typing import Callable
 
 
-def log(filename: str | None = None):
+def log(filename: str | None = None) -> Callable:
     """
     Декоратор, который регистрирует выполнение функции.
     :param filename: Имя файла для ведения логов.

@@ -1,7 +1,6 @@
-from _pytest import fixtures
-from _pytest.fixtures import fix_cache_order, fixture
-import src.generators
 import pytest
+
+import src.generators
 
 
 @pytest.fixture

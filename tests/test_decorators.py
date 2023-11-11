@@ -1,5 +1,5 @@
 import pytest
-import os
+
 import src.decorators as decorators
 
 
