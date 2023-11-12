@@ -12,7 +12,7 @@ def transactions_description(data: list[dict]) -> Generator:
         yield item["description"]
 
 
-def card_number_generator(start_number, end_number):
+def card_number_generator(start_number: int, end_number: int) -> Generator:
     for card_number in range(start_number, end_number + 1):
         card_number_str = f"{card_number:016d}"
         formatted_number = " ".join([card_number_str[i : i + 4] for i in range(0, len(card_number_str), 4)])
