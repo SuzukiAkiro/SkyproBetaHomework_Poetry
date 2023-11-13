@@ -18,7 +18,8 @@ def log(filename: str | None = None) -> Callable:
             try:
                 result = f"{datetime.now().strftime('%Y-%m-%d %H:%M')} {func.__name__} ok!\n"
             except Exception as e:
-                result = f"{datetime.now().strftime('%Y-%m-%d %H:%M')} {func.__name__} Error: {e}\n Inputs: {args}, {kwargs}\n"
+                result = f"{datetime.now().strftime('%Y-%m-%d %H:%M')}\
+                        {func.__name__} Error: {e}\n Inputs: {args}, {kwargs}\n"
             if filename:
                 with open(filename, "a") as file:
                     file.write(result)
