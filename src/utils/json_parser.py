@@ -5,7 +5,7 @@ from typing import TypeAlias
 JsonType: TypeAlias = list[dict]
 
 
-def json_parser(path: str | None) -> JsonType | list:
+def json_parser(path: str | None = None) -> JsonType | list:
     """
     Принимает на вход путь до json файла и возвращает его содержимое
     :param path: Путь до json файла
