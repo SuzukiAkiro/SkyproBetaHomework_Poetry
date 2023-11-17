@@ -1,6 +1,27 @@
+import json
+
 import pytest
 
-from src.utils.transaction_parser import parse_transaction
+from src import utils
+
+
+@pytest.fixture
+def valid_json():
+    with open("data/operations.json", "r") as f:
+        return json.load(f)
+
+
+def test_json_parser(valid_json):
+    assert utils.json_parser("data/operations.json") == valid_json
+
+
+def test_json_parser_empty():
+    assert utils.json_parser() == []
+
+
+def test_json_parser_invalid():
+    with pytest.raises(FileNotFoundError):
+        assert utils.json_parser("data/invalid_operations.json") == []
 
 
 @pytest.fixture
@@ -28,9 +49,9 @@ def test_data():
 
 
 def test_parse_transaction(test_data):
-    assert parse_transaction(test_data[0]) == 31957.58
+    assert utils.parse_transaction(test_data[0]) == 31957.58
 
 
 def test_parse_transaction_usd(test_data):
     with pytest.raises(ValueError):
-        parse_transaction(test_data[1])
+        utils.parse_transaction(test_data[1])
